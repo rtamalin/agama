@@ -12,11 +12,12 @@ pub fn main() {
         eprintln!("Provide url as first parameter");
         return;
     };
+    let code = args.get(2).cloned(); // handle optional second argument providing regcode
 
     let params = ConnectParams {
         language: Some("en_US".to_string()),
         url: Some(Url::parse(&url).unwrap()),
-        token: None,
+        token: code,
         email: None,
     };
 
